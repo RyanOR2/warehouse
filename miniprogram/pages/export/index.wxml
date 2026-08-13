@@ -1,0 +1,43 @@
+<!--pages/export/index.wxml-->
+<view class="page">
+  <view class="section-title">导出对象</view>
+  <view class="target-grid">
+    <view
+      wx:for="{{targets}}"
+      wx:key="key"
+      class="target-item {{target === item.key ? 'target-active' : ''}}"
+      data-key="{{item.key}}"
+      bindtap="onTargetTap"
+    >
+      <view class="target-icon">{{item.icon}}</view>
+      <view class="target-label">{{item.label}}</view>
+    </view>
+  </view>
+
+  <view wx:if="{{target === 'sales'}}" class="card">
+    <view class="form-item">
+      <view class="form-label">统计周期</view>
+      <picker mode="selector" range="{{periods}}" range-key="label" value="{{periodIndex}}" bindchange="onPeriodChange">
+        <view class="form-picker">{{periods[periodIndex].label}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <view wx:if="{{showDateRange}}" class="card">
+    <view class="form-item">
+      <view class="form-label">开始日期（可选）</view>
+      <picker mode="date" value="{{startDate}}" bindchange="onStartDate">
+        <view class="form-picker {{startDate ? '' : 'placeholder'}}">{{startDate || '不限'}}</view>
+      </picker>
+    </view>
+    <view class="form-item">
+      <view class="form-label">结束日期（可选）</view>
+      <picker mode="date" value="{{endDate}}" bindchange="onEndDate">
+        <view class="form-picker {{endDate ? '' : 'placeholder'}}">{{endDate || '不限'}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <button class="btn-primary export-btn" bindtap="onExport" disabled="{{exporting}}">导出 CSV（复制到剪贴板）</button>
+  <view class="export-tip">导出后 CSV 将复制到剪贴板，粘贴到 Excel / 记事本保存即可。</view>
+</view>

@@ -1,0 +1,76 @@
+<!--pages/outbound/index.wxml-->
+<view class="page">
+  <view class="card">
+    <view class="form-item">
+      <view class="form-label"><text class="required">*</text> 啤酒品类</view>
+      <picker mode="selector" range="{{beers}}" range-key="name" value="{{beerIndex}}" bindchange="onBeerChange">
+        <view class="form-picker {{beerIndex < 0 ? 'placeholder' : ''}}">
+          {{beerIndex >= 0 ? beers[beerIndex].name : '请选择品类'}}
+        </view>
+      </picker>
+    </view>
+
+    <view class="form-item">
+      <view class="form-label"><text class="required">*</text> 销售单价（元）</view>
+      <input class="form-input" type="digit" placeholder="默认取售价" value="{{unitPrice}}" data-field="unitPrice" bindinput="onInput" />
+    </view>
+
+    <view class="form-item">
+      <view class="form-label">订单号</view>
+      <input class="form-input" placeholder="选填" value="{{orderNo}}" data-field="orderNo" bindinput="onInput" />
+    </view>
+
+    <view class="form-item">
+      <view class="form-label">备注</view>
+      <input class="form-input" placeholder="选填" value="{{remark}}" data-field="remark" bindinput="onInput" />
+    </view>
+  </view>
+
+  <view class="card" wx:if="{{beerIndex >= 0}}">
+    <view class="batch-header">
+      <view class="batch-title">在库批次</view>
+      <view class="batch-tip">勾选批次并填写出库数量</view>
+    </view>
+
+    <view wx:if="{{!batches.length}}" class="empty">该品类暂无在库批次</view>
+
+    <view class="batch-item" wx:for="{{batches}}" wx:key="_id">
+      <view class="check {{item.selected ? 'checked' : ''}}" data-index="{{index}}" bindtap="onToggleBatch">
+        {{item.selected ? '✓' : ''}}
+      </view>
+      <view class="batch-info">
+        <view class="batch-dates">
+          <text>生产 {{item.prodText || '未填'}}</text>
+          <text wx:if="{{item.expText}}">到期 {{item.expText}}</text>
+        </view>
+        <view class="batch-stock {{item.isUnfilled ? 'text-danger' : ''}}">
+          剩余 {{item.quantity}} 瓶{{item.isUnfilled ? '（未填生产日期）' : ''}}
+        </view>
+      </view>
+      <input
+        class="batch-qty"
+        type="number"
+        placeholder="数量"
+        value="{{item.outQty}}"
+        data-index="{{index}}"
+        bindinput="onBatchQtyInput"
+        disabled="{{!item.selected}}"
+      />
+    </view>
+  </view>
+
+  <view class="card" wx:if="{{beerIndex >= 0}}">
+    <view class="fefo-row">
+      <input
+        class="form-input fefo-input"
+        type="number"
+        placeholder="总出库数量"
+        value="{{totalQty}}"
+        data-field="totalQty"
+        bindinput="onInput"
+      />
+      <view class="btn-plain fefo-btn" bindtap="onFefo">按到期日自动分配</view>
+    </view>
+    <button class="btn-primary save-btn" bindtap="onSubmit">提交出库</button>
+  </view>
+</view>

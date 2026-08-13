@@ -1,0 +1,46 @@
+<!--pages/shop/index.wxml-->
+<view class="page">
+  <view class="beer-banner">
+    <view class="banner-icon">🍺</view>
+    <view class="banner-text">
+      <view class="banner-title">啤酒商城</view>
+      <view class="banner-sub">新鲜直达 · 下单即配 · 线下交付</view>
+    </view>
+    <view class="cart-entry" bindtap="onGoCart">
+      🛒
+      <view wx:if="{{cartCount > 0}}" class="cart-badge">{{cartCount}}</view>
+    </view>
+  </view>
+
+  <view class="cat-row">
+    <view class="cat-chip {{catIndex < 0 ? 'active' : ''}}" bindtap="onClearFilter">全部</view>
+    <view
+      class="cat-chip {{catIndex === index ? 'active' : ''}}"
+      wx:for="{{categories}}"
+      wx:key="_id"
+      data-index="{{index}}"
+      bindtap="onFilterCategory"
+    >{{item.name}}</view>
+  </view>
+
+  <view wx:if="{{!beers.length}}" class="empty">暂无在售商品</view>
+
+  <view class="goods-grid">
+    <view class="goods-card" wx:for="{{beers}}" wx:key="_id">
+      <view class="goods-icon">
+        <image wx:if="{{item.image}}" class="goods-img" src="{{item.image}}" mode="aspectFill" />
+        <text wx:else>{{item.icon}}</text>
+      </view>
+      <view class="goods-name">{{item.name}}</view>
+      <view class="goods-sub">{{item.spec}}</view>
+      <view class="goods-bottom">
+        <view class="goods-price">¥{{item.priceText}}</view>
+        <view class="stepper">
+          <view wx:if="{{item.quantity > 0}}" class="step-btn" data-id="{{item._id}}" bindtap="onMinus">−</view>
+          <view wx:if="{{item.quantity > 0}}" class="step-num">{{item.quantity}}</view>
+          <view class="step-btn step-add" data-id="{{item._id}}" bindtap="onAddToCart">＋</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

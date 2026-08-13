@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "openapi": [
+      "wxacode.get",
+      "subscribeMessage.send"
+    ]
+  },
+  "triggers": [
+    {
+      "name": "dailyExpiryReminder",
+      "type": "timer",
+      "config": "0 0 9 * * * *"
+    }
+  ]
+}

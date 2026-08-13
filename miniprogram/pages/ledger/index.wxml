@@ -1,0 +1,52 @@
+<!--pages/ledger/index.wxml-->
+<view class="page">
+  <view class="card">
+    <view class="filter-row">
+      <picker class="filter-picker-wrap" mode="selector" range="{{typeOptions}}" range-key="label" value="{{typeIndex}}" bindchange="onTypeChange">
+        <view class="filter-picker">{{typeOptions[typeIndex].label}}</view>
+      </picker>
+      <picker class="filter-picker-wrap" mode="selector" range="{{timeOptions}}" range-key="label" value="{{timeIndex}}" bindchange="onTimeChange">
+        <view class="filter-picker">{{timeOptions[timeIndex].label}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="summary-grid">
+    <view class="summary-cell">
+      <view class="summary-label">销售额</view>
+      <view class="summary-value">{{summaryText.salesAmount}}</view>
+    </view>
+    <view class="summary-cell">
+      <view class="summary-label">净利润</view>
+      <view class="summary-value profit">{{summaryText.profit}}</view>
+    </view>
+    <view class="summary-cell">
+      <view class="summary-label">流水笔数</view>
+      <view class="summary-value">{{summary.count}}</view>
+    </view>
+    <view class="summary-cell">
+      <view class="summary-label">报废/盘亏损失</view>
+      <view class="summary-value danger">{{summaryText.loss}}</view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view wx:if="{{!list.length}}" class="empty">暂无流水记录</view>
+    <view class="ledger-item" wx:for="{{list}}" wx:key="_id">
+      <view class="ledger-main">
+        <view class="tag {{item.typeCls}}">{{item.typeLabel}}</view>
+        <view class="ledger-name">{{item.beerName}}</view>
+        <view class="ledger-qty {{item.qtyCls}}">{{item.qtyText}} 瓶</view>
+      </view>
+      <view class="ledger-sub">
+        <text class="ledger-time">{{item.timeText}}</text>
+        <text wx:if="{{item.unitPriceText}}" class="ledger-unit">单价 ¥{{item.unitPriceText}}</text>
+        <text wx:if="{{item.showAmount}}" class="{{item.amountCls}}">{{item.amountLabel}} ¥{{item.amountText}}</text>
+        <text wx:if="{{item.showProfit}}" class="{{item.profitCls}}">毛利 ¥{{item.profitText}}</text>
+      </view>
+      <view wx:if="{{item.remark}}" class="ledger-remark">备注：{{item.remark}}</view>
+    </view>
+    <view wx:if="{{hasMore}}" class="load-more">上拉加载更多</view>
+    <view wx:elif="{{list.length}}" class="load-more">已加载全部</view>
+  </view>
+</view>

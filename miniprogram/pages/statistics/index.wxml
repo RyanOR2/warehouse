@@ -1,0 +1,63 @@
+<!--pages/statistics/index.wxml-->
+<view class="page">
+  <view class="seg-tabs">
+    <view
+      class="seg-tab {{periodIndex === index ? 'active' : ''}}"
+      wx:for="{{periodOptions}}"
+      wx:key="value"
+      data-i="{{index}}"
+      bindtap="onPeriod"
+    >{{item.label}}</view>
+  </view>
+
+  <view class="summary-grid">
+    <view class="summary-cell">
+      <view class="summary-label">销售额</view>
+      <view class="summary-value">{{summarySalesAmountText}}</view>
+    </view>
+    <view class="summary-cell">
+      <view class="summary-label">净利润</view>
+      <view class="summary-value profit">{{summaryProfitText}}</view>
+    </view>
+    <view class="summary-cell">
+      <view class="summary-label">订单笔数</view>
+      <view class="summary-value">{{summary.orderCount}}</view>
+    </view>
+    <view class="summary-cell">
+      <view class="summary-label">销量</view>
+      <view class="summary-value">{{summary.salesQty}}<text class="summary-unit"> 瓶</text></view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="chart-header">
+      <view class="section-title">销售趋势</view>
+      <view class="gran-tabs">
+        <view
+          class="gran-tab {{granIndex === index ? 'active' : ''}}"
+          wx:for="{{granOptions}}"
+          wx:key="value"
+          data-i="{{index}}"
+          bindtap="onGran"
+        >{{item.label}}</view>
+      </view>
+    </view>
+    <trend-chart labels="{{chartLabels}}" series="{{chartSeries}}" />
+  </view>
+
+  <view class="card">
+    <view class="section-title">品类排行</view>
+    <view wx:if="{{!ranking.length}}" class="empty">暂无销售数据</view>
+    <view class="rank-item" wx:for="{{ranking}}" wx:key="beerId">
+      <view class="rank-no">{{index + 1}}</view>
+      <view class="rank-info">
+        <view class="rank-name">{{item.name}}</view>
+        <view class="rank-sub">销量 {{item.salesQty}} 瓶</view>
+      </view>
+      <view class="rank-right">
+        <view class="rank-amount">{{item.salesAmountText}}</view>
+        <view class="rank-profit">利润 {{item.profitText}}</view>
+      </view>
+    </view>
+  </view>
+</view>

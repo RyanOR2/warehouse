@@ -1,0 +1,56 @@
+/* pages/stocktake/index.wxss */
+.page {
+  padding: 24rpx;
+}
+
+.tip-banner {
+  background: rgba(245, 166, 35, 0.08);
+  color: #b45309;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  font-size: 24rpx;
+  margin: 0 24rpx 16rpx;
+}
+
+.save-btn {
+  margin-top: 8rpx;
+}
+
+.tk-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f3f4f6;
+}
+
+.tk-item:last-child {
+  border-bottom: none;
+}
+
+.tk-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.tk-name {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.tk-stock {
+  margin-top: 4rpx;
+  font-size: 22rpx;
+  color: #6b7280;
+}
+
+.tk-input {
+  width: 200rpx;
+  background: #f9fafb;
+  border: 1rpx solid #e5e7eb;
+  border-radius: 10rpx;
+  padding: 12rpx 16rpx;
+  font-size: 28rpx;
+  text-align: center;
+  box-sizing: border-box;
+}

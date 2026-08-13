@@ -1,0 +1,29 @@
+<!--pages/category/index.wxml-->
+<view class="page">
+  <view class="card">
+    <view class="header-row">
+      <view class="page-title">分类管理</view>
+      <view class="btn-add" bindtap="onAdd">＋ 新增</view>
+    </view>
+
+    <view wx:if="{{!categories.length}}" class="empty">暂无分类，点击右上角新增</view>
+
+    <view class="cat-item" wx:for="{{categories}}" wx:key="_id">
+      <view class="cat-info">
+        <view class="cat-name">{{item.name}}</view>
+        <view class="tag {{item.status === 'active' ? 'tag-green' : 'tag-gray'}}">
+          {{item.status === 'active' ? '启用' : '已停用'}}
+        </view>
+      </view>
+      <view class="cat-actions">
+        <text class="action-link" data-id="{{item._id}}" bindtap="onRename">重命名</text>
+        <text
+          class="action-link {{item.status === 'active' ? 'danger' : ''}}"
+          data-id="{{item._id}}"
+          data-status="{{item.status}}"
+          bindtap="onToggleStatus"
+        >{{item.status === 'active' ? '停用' : '启用'}}</text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,23 @@
+<!--components/trend-chart/index.wxml-->
+<view class="chart-container">
+  <canvas
+    type="2d"
+    id="chart"
+    class="chart-canvas"
+    bindtouchstart="onTouch"
+    bindtouchmove="onTouch"
+    bindtouchend="onTouchEnd"
+  ></canvas>
+  <view
+    class="chart-tooltip"
+    wx:if="{{tooltip.visible}}"
+    style="left: {{tooltip.x}}px;"
+  >
+    <view class="tooltip-label">{{tooltip.label}}</view>
+    <view class="tooltip-line" wx:for="{{tooltip.lines}}" wx:key="name">
+      <view class="tooltip-dot" style="background: {{item.color}};"></view>
+      <text class="tooltip-name">{{item.name}}</text>
+      <text class="tooltip-value">{{item.value}}</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,99 @@
+/* pages/outbound/index.wxss */
+.page {
+  padding: 24rpx;
+}
+
+.save-btn {
+  margin-top: 16rpx;
+}
+
+.batch-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 16rpx;
+}
+
+.batch-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.batch-tip {
+  font-size: 22rpx;
+  color: #9ca3af;
+}
+
+.batch-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f3f4f6;
+}
+
+.batch-item:last-child {
+  border-bottom: none;
+}
+
+.check {
+  width: 40rpx;
+  height: 40rpx;
+  border: 2rpx solid #d1d5db;
+  border-radius: 8rpx;
+  margin-right: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26rpx;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.check.checked {
+  background: #f5a623;
+  border-color: #f5a623;
+}
+
+.batch-info {
+  flex: 1;
+}
+
+.batch-dates {
+  display: flex;
+  gap: 24rpx;
+  font-size: 24rpx;
+  color: #6b7280;
+}
+
+.batch-stock {
+  margin-top: 6rpx;
+  font-size: 26rpx;
+  color: #1f2937;
+}
+
+.batch-qty {
+  width: 160rpx;
+  background: #f9fafb;
+  border: 1rpx solid #e5e7eb;
+  border-radius: 10rpx;
+  padding: 12rpx 16rpx;
+  font-size: 28rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.fefo-row {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.fefo-input {
+  flex: 1;
+}
+
+.fefo-btn {
+  flex-shrink: 0;
+  padding: 0 24rpx;
+}

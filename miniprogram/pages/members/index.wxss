@@ -1,0 +1,116 @@
+/* pages/members/index.wxss */
+.page {
+  padding: 24rpx;
+}
+
+.action-card {
+  margin: 16rpx 0;
+  display: flex;
+  gap: 20rpx;
+}
+
+.action-card .btn-primary,
+.action-card .btn-plain {
+  flex: 1;
+  margin: 0;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 24rpx 8rpx 16rpx;
+}
+
+.member-card {
+  margin: 16rpx 0;
+}
+
+.member-name {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #1f2937;
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.member-meta {
+  margin-top: 12rpx;
+  display: flex;
+  gap: 12rpx;
+}
+
+.member-openid {
+  margin-top: 8rpx;
+  font-size: 22rpx;
+  color: #9ca3af;
+  word-break: break-all;
+}
+
+.member-actions {
+  margin-top: 20rpx;
+  display: flex;
+  gap: 20rpx;
+  justify-content: flex-end;
+}
+
+.action-btn {
+  flex: 0 0 auto;
+  padding: 0 32rpx;
+  line-height: 2.2;
+  font-size: 26rpx;
+}
+
+.modal-mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-body {
+  width: 80%;
+  background: #ffffff;
+  border-radius: 20rpx;
+  padding: 32rpx;
+  box-sizing: border-box;
+}
+
+.modal-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #1f2937;
+  text-align: center;
+  margin-bottom: 24rpx;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 20rpx;
+  margin-top: 8rpx;
+}
+
+.modal-btn {
+  flex: 1;
+  margin: 0;
+}
+
+.invite-code {
+  font-size: 56rpx;
+  font-weight: 700;
+  letter-spacing: 12rpx;
+  text-align: center;
+  color: #f5a623;
+  padding: 24rpx 0;
+}
+
+.invite-tip {
+  font-size: 24rpx;
+  color: #6b7280;
+  text-align: center;
+  margin-bottom: 24rpx;
+}

@@ -1,0 +1,30 @@
+<!--pages/stocktake/index.wxml-->
+<view class="page">
+  <view class="tip-banner">支持局部盘点：只填写需要盘点的品类即可，未填写的品类库存保持不变。</view>
+
+  <view class="card">
+    <view wx:if="{{!beers.length}}" class="empty">暂无品类</view>
+    <view class="tk-item" wx:for="{{beers}}" wx:key="_id">
+      <view class="tk-info">
+        <view class="tk-name">{{item.name}}</view>
+        <view class="tk-stock">账面库存 {{item.stock}} 瓶</view>
+      </view>
+      <input
+        class="tk-input"
+        type="number"
+        placeholder="实际数量"
+        value="{{item.actualQty}}"
+        data-index="{{index}}"
+        bindinput="onActualInput"
+      />
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="form-item">
+      <view class="form-label">盘点说明（可选）</view>
+      <input class="form-input" placeholder="选填" value="{{remark}}" bindinput="onRemarkInput" />
+    </view>
+    <button class="btn-primary save-btn" bindtap="onSubmit">提交盘点</button>
+  </view>
+</view>

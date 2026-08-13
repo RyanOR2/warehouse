@@ -1,0 +1,23 @@
+/* pages/return/index.wxss */
+.page {
+  padding: 24rpx;
+}
+
+.save-btn {
+  margin-top: 16rpx;
+}
+
+.date-row {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+}
+
+.date-picker {
+  flex: 1;
+}
+
+.clear-link {
+  font-size: 26rpx;
+  color: #ef4444;
+}

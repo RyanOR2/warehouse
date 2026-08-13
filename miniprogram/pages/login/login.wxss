@@ -1,0 +1,127 @@
+/**login.wxss**/
+
+page {
+  background-color: #f6f6f6;
+  font-family: PingFang SC;
+}
+
+.page-container {
+  display: flex;
+  justify-content: center;
+  padding: 80rpx 40rpx;
+  box-sizing: border-box;
+}
+
+.login-card {
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 24rpx;
+  padding: 80rpx 60rpx 60rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 8rpx 40rpx rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  background-color: #f2f2f2;
+  margin-bottom: 40rpx;
+}
+
+.title {
+  font-size: 40rpx;
+  font-weight: 500;
+  color: #000000;
+  margin-bottom: 16rpx;
+}
+
+.subtitle {
+  font-size: 26rpx;
+  color: #888888;
+  margin-bottom: 60rpx;
+}
+
+.login-btn {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 44rpx;
+  background-color: #07c160;
+  color: #ffffff;
+  font-size: 32rpx;
+  font-weight: 500;
+  text-align: center;
+}
+
+.login-btn[disabled] {
+  background-color: #9ae6c1;
+  color: #ffffff;
+}
+
+.tip {
+  margin-top: 24rpx;
+  font-size: 22rpx;
+  color: #bbbbbb;
+  text-align: center;
+}
+
+.success-icon {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background-color: #07c160;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40rpx;
+}
+
+.success-check {
+  color: #ffffff;
+  font-size: 64rpx;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.info-list {
+  width: 100%;
+  margin-top: 20rpx;
+  margin-bottom: 60rpx;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid rgba(0, 0, 0, 0.06);
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  font-size: 24rpx;
+  color: #999999;
+  margin-bottom: 12rpx;
+}
+
+.info-value {
+  font-size: 28rpx;
+  color: #333333;
+  word-break: break-all;
+}
+
+.logout-btn {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 44rpx;
+  background-color: rgba(0, 0, 0, 0.04);
+  color: #666666;
+  font-size: 32rpx;
+  text-align: center;
+}

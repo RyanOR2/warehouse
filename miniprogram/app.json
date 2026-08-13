@@ -1,0 +1,62 @@
+{
+  "pages": [
+    "pages/shop/index",
+    "pages/cart/index",
+    "pages/mine/index",
+    "pages/orders/index",
+    "pages/my-orders/index",
+    "pages/index/index",
+    "pages/manage/index",
+    "pages/beer-edit/index",
+    "pages/category/index",
+    "pages/inbound/index",
+    "pages/outbound/index",
+    "pages/return/index",
+    "pages/scrap/index",
+    "pages/stocktake/index",
+    "pages/ledger/index",
+    "pages/stock/index",
+    "pages/statistics/index",
+    "pages/members/index",
+    "pages/export/index",
+    "pages/settings/index",
+    "pages/example/index",
+    "pages/login/login"
+  ],
+  "window": {
+    "backgroundColor": "#F3F4F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F3F4F6",
+    "navigationBarTitleText": "啤酒仓库管理",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#6B7280",
+    "selectedColor": "#F5A623",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/shop/index",
+        "text": "商城",
+        "iconPath": "images/icons/goods.png",
+        "selectedIconPath": "images/icons/goods-active.png"
+      },
+      {
+        "pagePath": "pages/cart/index",
+        "text": "购物车",
+        "iconPath": "images/icons/cart.png",
+        "selectedIconPath": "images/icons/cart.png"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "text": "我的",
+        "iconPath": "images/icons/usercenter.png",
+        "selectedIconPath": "images/icons/usercenter-active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents"
+}

@@ -1,0 +1,76 @@
+<!--pages/stock/index.wxml-->
+<view class="page">
+  <view class="remind-banner" bindtap="onSubscribeRemind">
+    <view class="remind-banner-icon">🔔</view>
+    <view class="remind-banner-text">
+      <view class="remind-banner-title">开启临期 / 过期 / 新订单提醒</view>
+      <view wx:if="{{remindQuota}}" class="remind-banner-sub">
+        剩余额度 临期{{remindQuota.expiringQuota}} · 过期{{remindQuota.expiredQuota}} · 新订单{{remindQuota.newOrderQuota}}
+      </view>
+      <view wx:else class="remind-banner-sub">每次授权可接收一条微信通知，请定期续订</view>
+    </view>
+    <view class="remind-banner-arrow">›</view>
+  </view>
+
+  <view class="card total-card">
+    <view class="total-label">仓库总库存</view>
+    <view class="total-value">
+      {{totalStock}}<text class="total-unit"> 瓶</text>
+    </view>
+  </view>
+
+  <view class="card" wx:if="{{categorySummary.length}}">
+    <view class="section-title">分类汇总</view>
+    <view class="cat-summary">
+      <view class="cat-chip" wx:for="{{categorySummary}}" wx:key="categoryId">
+        <view class="cat-chip-name">{{item.categoryName}}</view>
+        <view class="cat-chip-val">{{item.total}} 瓶</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="filter-row">
+      <picker
+        mode="selector"
+        range="{{categories}}"
+        range-key="name"
+        value="{{filterCatIndex}}"
+        bindchange="onFilterCategory"
+      >
+        <view class="filter-picker {{filterCatIndex < 0 ? 'placeholder' : ''}}">
+          {{filterCatIndex >= 0 ? categories[filterCatIndex].name : '全部分类'}}
+        </view>
+      </picker>
+      <picker
+        mode="selector"
+        range="{{statusOptions}}"
+        range-key="label"
+        value="{{statusIndex}}"
+        bindchange="onFilterStatus"
+      >
+        <view class="filter-picker">{{statusOptions[statusIndex].label}}</view>
+      </picker>
+      <text
+        wx:if="{{filterCatIndex >= 0 || statusIndex > 0}}"
+        class="clear-filter"
+        bindtap="onClearFilter"
+      >清除</text>
+    </view>
+
+    <view wx:if="{{!list.length}}" class="empty">暂无符合条件的品类</view>
+
+    <view class="stock-item" wx:for="{{list}}" wx:key="_id">
+      <view class="stock-info">
+        <view class="stock-name">{{item.name}}</view>
+        <view class="stock-sub">
+          {{item.categoryName}} · 最早到期 {{item.earliestExpiryText || '—'}}
+        </view>
+      </view>
+      <view class="stock-right">
+        <view class="stock-qty">{{item.stock}}<text class="unit"> 瓶</text></view>
+        <view class="tag {{item.shelfClass}}">{{item.shelfText}}</view>
+      </view>
+    </view>
+  </view>
+</view>

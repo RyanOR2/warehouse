@@ -1,0 +1,41 @@
+<!--pages/index/index.wxml-->
+<view class="home">
+  <view class="home-header">
+    <view class="home-title">啤酒仓库管理</view>
+    <view class="home-subtitle">进销存 · 价格维护 · 保质期预警</view>
+  </view>
+
+  <view wx:if="{{remind.total > 0}}" class="remind-card" bindtap="onGoStock">
+    <view class="remind-head">
+      <view class="remind-title">
+        <text class="remind-dot">{{remind.total}}</text>
+        待处理提醒
+      </view>
+      <view class="remind-more">去处理 ›</view>
+    </view>
+    <view class="remind-item" wx:for="{{remind.list}}" wx:key="_k">
+      <text class="remind-name">{{item.beerName}}</text>
+      <text class="tag {{item.cls}}">{{item.text}}</text>
+    </view>
+  </view>
+
+  <view class="menu-grid">
+    <view
+      class="menu-item {{item.disabled ? 'disabled' : ''}}"
+      wx:for="{{menus}}"
+      wx:key="key"
+      data-index="{{index}}"
+      bindtap="onMenuTap"
+    >
+      <view class="menu-icon">{{item.icon}}</view>
+      <view class="menu-title">{{item.title}}</view>
+    </view>
+  </view>
+
+  <cloud-tip-modal
+    showTipProps="{{showTip}}"
+    title="{{title}}"
+    content="{{content}}"
+    bind:close="onCloseTip"
+  ></cloud-tip-modal>
+</view>

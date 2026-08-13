@@ -1,0 +1,62 @@
+/* pages/category/index.wxss */
+.page {
+  padding: 24rpx;
+}
+
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24rpx;
+}
+
+.page-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.btn-add {
+  background: #f5a623;
+  color: #ffffff;
+  font-size: 26rpx;
+  padding: 10rpx 28rpx;
+  border-radius: 10rpx;
+}
+
+.cat-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #f3f4f6;
+}
+
+.cat-item:last-child {
+  border-bottom: none;
+}
+
+.cat-info {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.cat-name {
+  font-size: 30rpx;
+  color: #1f2937;
+}
+
+.cat-actions {
+  display: flex;
+  gap: 28rpx;
+}
+
+.action-link {
+  font-size: 26rpx;
+  color: #6b7280;
+}
+
+.action-link.danger {
+  color: #ef4444;
+}

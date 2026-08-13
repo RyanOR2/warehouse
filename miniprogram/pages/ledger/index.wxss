@@ -1,0 +1,113 @@
+/* pages/ledger/index.wxss */
+.page {
+  padding: 24rpx;
+}
+
+.filter-row {
+  display: flex;
+  gap: 16rpx;
+}
+
+.filter-picker-wrap {
+  flex: 1;
+}
+
+.filter-picker {
+  background: #f9fafb;
+  border: 1rpx solid #e5e7eb;
+  border-radius: 12rpx;
+  padding: 14rpx 20rpx;
+  font-size: 26rpx;
+  color: #1f2937;
+}
+
+.summary-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+  margin: 16rpx 24rpx;
+}
+
+.summary-cell {
+  flex: 1;
+  min-width: calc(50% - 10rpx);
+  background: #ffffff;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  box-sizing: border-box;
+}
+
+.summary-label {
+  font-size: 24rpx;
+  color: #6b7280;
+}
+
+.summary-value {
+  margin-top: 8rpx;
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.summary-value.profit {
+  color: #3b82f6;
+}
+
+.summary-value.danger {
+  color: #ef4444;
+}
+
+.ledger-item {
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f3f4f6;
+}
+
+.ledger-item:last-child {
+  border-bottom: none;
+}
+
+.ledger-main {
+  display: flex;
+  align-items: center;
+}
+
+.ledger-name {
+  flex: 1;
+  min-width: 0;
+  margin-left: 12rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.ledger-qty {
+  font-size: 28rpx;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.ledger-sub {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+  margin-top: 8rpx;
+  font-size: 22rpx;
+  color: #6b7280;
+}
+
+.ledger-time {
+  color: #9ca3af;
+}
+
+.ledger-remark {
+  margin-top: 6rpx;
+  font-size: 22rpx;
+  color: #9ca3af;
+}
+
+.load-more {
+  text-align: center;
+  color: #9ca3af;
+  font-size: 24rpx;
+  padding: 20rpx 0;
+}

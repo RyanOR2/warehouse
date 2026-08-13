@@ -1,0 +1,82 @@
+<!--pages/mine/index.wxml-->
+<view class="page">
+  <view class="profile-card">
+    <view class="avatar">🍻</view>
+    <view class="profile-info">
+      <view class="profile-name">{{isAdmin ? '管理员' : '顾客'}}</view>
+      <view class="profile-sub">{{isAdmin ? '欢迎回来，管理你的仓库' : '欢迎光临啤酒商城'}}</view>
+    </view>
+  </view>
+
+  <view wx:if="{{isAdmin}}" class="card admin-panel">
+    <view class="admin-title">管理后台</view>
+    <view wx:if="{{remindQuota}}" class="quota-line">
+      订阅额度：临期 {{remindQuota.expiringQuota}} · 过期 {{remindQuota.expiredQuota}} · 新订单 {{remindQuota.newOrderQuota}}
+    </view>
+    <view class="admin-grid">
+      <view class="admin-item" bindtap="onGoAdmin">
+        <view class="admin-icon">🏠</view>
+        <view class="admin-label">管理首页</view>
+      </view>
+      <view class="admin-item" bindtap="onGoOrders">
+        <view class="admin-icon">📋</view>
+        <view class="admin-label">订单管理</view>
+      </view>
+      <view class="admin-item" bindtap="onSubscribeRemind">
+        <view class="admin-icon">🔔</view>
+        <view class="admin-label">消息提醒</view>
+      </view>
+      <view class="admin-item" bindtap="onGoSettings">
+        <view class="admin-icon">⚙️</view>
+        <view class="admin-label">设置</view>
+      </view>
+      <view wx:if="{{role === 'owner'}}" class="admin-item" bindtap="onGoMembers">
+        <view class="admin-icon">👥</view>
+        <view class="admin-label">成员管理</view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{!isAdmin}}" class="card join-panel">
+    <view class="admin-title">管理入口</view>
+    <view class="join-btn" bindtap="onOpenJoin">🔑 加入管理</view>
+  </view>
+
+  <view class="section-title-row" bindtap="onGoMyOrders">
+    <view class="section-title">我的订单</view>
+    <view class="view-all">查看全部 ›</view>
+  </view>
+  <view wx:if="{{!orders.length}}" class="empty">暂无订单</view>
+
+  <view class="card order-card" wx:for="{{orders}}" wx:key="_id">
+    <view class="order-top">
+      <view class="order-no">{{item.orderNo}}</view>
+      <view class="tag {{item.statusCls}}">{{item.statusLabel}}</view>
+    </view>
+    <view class="order-time">{{item.timeText}}</view>
+    <view class="order-items">
+      <view class="order-item" wx:for="{{item.items}}" wx:for-item="it" wx:key="beerId">
+        <text class="oi-name">{{it.name}}</text>
+        <text class="oi-qty">×{{it.quantity}}</text>
+      </view>
+    </view>
+    <view class="order-bottom">
+      <text class="order-count">共 {{item.totalQuantity}} 瓶</text>
+      <text class="order-amount">¥{{item.amountText}}</text>
+    </view>
+  </view>
+
+  <view class="modal-mask" wx:if="{{showJoin}}" bindtap="onCloseJoin">
+    <view class="modal-body" catchtap="noop">
+      <view class="modal-title">加入管理</view>
+      <view class="form-item">
+        <view class="form-label">邀请码</view>
+        <input class="form-input" placeholder="请输入邀请码" value="{{inviteCode}}" bindinput="onJoinInput" />
+      </view>
+      <view class="modal-actions">
+        <button class="btn-plain modal-btn" bindtap="onCloseJoin">取消</button>
+        <button class="btn-primary modal-btn" bindtap="onSubmitJoin">加入</button>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,53 @@
+/* components/trend-chart/index.wxss */
+.chart-container {
+  position: relative;
+  width: 100%;
+  height: 420rpx;
+}
+
+.chart-canvas {
+  width: 100%;
+  height: 420rpx;
+}
+
+.chart-tooltip {
+  position: absolute;
+  top: 0;
+  background: rgba(31, 41, 55, 0.92);
+  color: #ffffff;
+  border-radius: 8rpx;
+  padding: 12rpx 16rpx;
+  font-size: 22rpx;
+  line-height: 1.5;
+  pointer-events: none;
+  z-index: 10;
+  min-width: 160rpx;
+  box-sizing: border-box;
+  transform: translateX(-50%);
+}
+
+.tooltip-label {
+  font-weight: 600;
+  margin-bottom: 4rpx;
+}
+
+.tooltip-line {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.tooltip-dot {
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tooltip-name {
+  flex: 1;
+}
+
+.tooltip-value {
+  font-weight: 600;
+}

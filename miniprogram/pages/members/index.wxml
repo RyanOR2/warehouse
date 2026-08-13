@@ -1,0 +1,65 @@
+<!--pages/members/index.wxml-->
+<view class="page">
+  <view class="card action-card">
+    <button class="btn-primary" bindtap="onGenerateInvite">生成邀请码</button>
+    <button class="btn-plain" bindtap="onOpenAdd">录入 openid</button>
+  </view>
+
+  <view class="section-title">成员列表</view>
+  <view wx:if="{{!members.length}}" class="empty">暂无成员</view>
+
+  <view class="card member-card" wx:for="{{members}}" wx:key="_id">
+    <view class="member-name">
+      {{item.nickname || item.openidShort}}
+      <text wx:if="{{item.openid === myOpenid}}" class="tag tag-gray">我</text>
+    </view>
+    <view class="member-meta">
+      <text class="tag {{item.roleCls}}">{{item.roleLabel}}</text>
+      <text wx:if="{{item.status === 'disabled'}}" class="tag tag-gray">已停用</text>
+    </view>
+    <view class="member-openid">{{item.openid}}</view>
+    <view class="member-actions" wx:if="{{item.openid !== myOpenid && item.status === 'active'}}">
+      <button
+        wx:if="{{item.role === 'operator'}}"
+        class="btn-plain action-btn"
+        data-id="{{item._id}}"
+        data-name="{{item.nickname || item.openidShort}}"
+        bindtap="onTransferOwner"
+      >移交 owner</button>
+      <button
+        class="btn-danger action-btn"
+        data-id="{{item._id}}"
+        data-name="{{item.nickname || item.openidShort}}"
+        bindtap="onRemove"
+      >移除</button>
+    </view>
+  </view>
+
+  <!-- 邀请码弹窗 -->
+  <view class="modal-mask" wx:if="{{showInvite}}" bindtap="onCloseInvite">
+    <view class="modal-body" catchtap="noop">
+      <view class="modal-title">邀请码</view>
+      <view class="invite-code">{{inviteCode}}</view>
+      <view class="invite-tip">有效期至 {{inviteExpires}}，发给对方在小程序「我的」页输入加入</view>
+      <view class="modal-actions">
+        <button class="btn-plain modal-btn" bindtap="onCloseInvite">关闭</button>
+        <button class="btn-primary modal-btn" bindtap="onCopyInvite">复制</button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 录入 openid 弹窗 -->
+  <view class="modal-mask" wx:if="{{showAdd}}" bindtap="onCloseAdd">
+    <view class="modal-body" catchtap="noop">
+      <view class="modal-title">添加管理员</view>
+      <view class="form-item">
+        <view class="form-label">对方 openid</view>
+        <input class="form-input" placeholder="请输入对方 openid" value="{{addOpenid}}" bindinput="onAddOpenidInput" />
+      </view>
+      <view class="modal-actions">
+        <button class="btn-plain modal-btn" bindtap="onCloseAdd">取消</button>
+        <button class="btn-primary modal-btn" bindtap="onSubmitAdd">添加</button>
+      </view>
+    </view>
+  </view>
+</view>

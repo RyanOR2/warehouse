@@ -1,0 +1,63 @@
+<!--pages/manage/index.wxml-->
+<view class="page">
+  <view class="toolbar">
+    <view class="search-box">
+      <input
+        class="search-input"
+        placeholder="搜索啤酒名称"
+        value="{{keyword}}"
+        bindinput="onKeywordInput"
+        bindconfirm="onSearch"
+      />
+      <text class="search-btn" bindtap="onSearch">搜索</text>
+    </view>
+
+    <view class="filter-row">
+      <picker mode="selector" range="{{categories}}" range-key="name" value="{{filterCatIndex}}" bindchange="onFilterCategory">
+        <view class="filter-picker {{filterCatIndex < 0 ? 'placeholder' : ''}}">
+          {{filterCatIndex >= 0 ? categories[filterCatIndex].name : '全部分类'}}
+        </view>
+      </picker>
+      <text wx:if="{{filterCatIndex >= 0}}" class="clear-filter" bindtap="onClearFilter">清除筛选</text>
+      <text class="toolbar-link" bindtap="onCategoryManage">分类管理</text>
+      <text class="toolbar-link primary" bindtap="onAddBeer">＋ 新增品类</text>
+    </view>
+  </view>
+
+  <view wx:if="{{!beers.length}}" class="empty">暂无品类，点击「新增品类」开始</view>
+
+  <view class="card beer-card" wx:for="{{beers}}" wx:key="_id">
+    <view class="beer-top">
+      <view class="beer-name">{{item.name}}</view>
+      <view class="tag {{item.status === 'active' ? 'tag-green' : 'tag-gray'}}">
+        {{item.status === 'active' ? '启用' : '停用'}}
+      </view>
+    </view>
+    <view class="beer-sub">{{item.categoryName}}{{item.spec ? ' · ' + item.spec : ''}}</view>
+
+    <view class="beer-metrics">
+      <view class="metric">
+        <view class="metric-value">{{item.stock}}</view>
+        <view class="metric-label">库存（瓶）</view>
+      </view>
+      <view class="metric">
+        <view class="metric-value">¥{{item.sellingPriceText}}</view>
+        <view class="metric-label">售价</view>
+      </view>
+      <view class="metric">
+        <view class="tag {{item.shelfClass}}">{{item.shelfText}}</view>
+        <view class="metric-label">最低保质期</view>
+      </view>
+    </view>
+
+    <view class="beer-actions">
+      <text class="action-link" data-id="{{item._id}}" bindtap="onEditBeer">编辑</text>
+      <text
+        class="action-link {{item.status === 'active' ? 'danger' : ''}}"
+        data-id="{{item._id}}"
+        data-status="{{item.status}}"
+        bindtap="onToggleStatus"
+      >{{item.status === 'active' ? '停用' : '启用'}}</text>
+    </view>
+  </view>
+</view>

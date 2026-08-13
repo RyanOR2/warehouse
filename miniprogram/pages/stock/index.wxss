@@ -1,0 +1,166 @@
+/* pages/stock/index.wxss */
+.remind-banner {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #f7b733, #f5a623);
+  border-radius: 16rpx;
+  padding: 24rpx 28rpx;
+  margin-bottom: 24rpx;
+  color: #ffffff;
+  box-shadow: 0 6rpx 20rpx rgba(245, 166, 35, 0.25);
+}
+
+.remind-banner-icon {
+  font-size: 48rpx;
+  line-height: 1;
+  margin-right: 20rpx;
+}
+
+.remind-banner-text {
+  flex: 1;
+}
+
+.remind-banner-title {
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.remind-banner-sub {
+  margin-top: 6rpx;
+  font-size: 22rpx;
+  opacity: 0.9;
+}
+
+.remind-banner-arrow {
+  font-size: 40rpx;
+  opacity: 0.9;
+}
+
+.total-card {
+  text-align: center;
+  padding: 40rpx 24rpx;
+}
+
+.total-label {
+  font-size: 26rpx;
+  color: #6b7280;
+}
+
+.total-value {
+  margin-top: 12rpx;
+  font-size: 64rpx;
+  font-weight: 700;
+  color: #f5a623;
+}
+
+.total-unit {
+  font-size: 26rpx;
+  font-weight: 400;
+  color: #6b7280;
+}
+
+.section-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 20rpx;
+}
+
+.cat-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+.cat-chip {
+  background: #f3f4f6;
+  border-radius: 12rpx;
+  padding: 16rpx 24rpx;
+  min-width: 140rpx;
+}
+
+.cat-chip-name {
+  font-size: 26rpx;
+  color: #1f2937;
+}
+
+.cat-chip-val {
+  margin-top: 6rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #f5a623;
+}
+
+.filter-row {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  margin-bottom: 20rpx;
+}
+
+.filter-picker {
+  background: #f3f4f6;
+  border-radius: 8rpx;
+  padding: 12rpx 20rpx;
+  font-size: 26rpx;
+  color: #1f2937;
+}
+
+.filter-picker.placeholder {
+  color: #9ca3af;
+}
+
+.clear-filter {
+  font-size: 26rpx;
+  color: #f5a623;
+}
+
+.stock-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.stock-item:last-child {
+  border-bottom: none;
+}
+
+.stock-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.stock-name {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.stock-sub {
+  margin-top: 6rpx;
+  font-size: 24rpx;
+  color: #6b7280;
+}
+
+.stock-right {
+  text-align: right;
+  margin-left: 20rpx;
+}
+
+.stock-qty {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.stock-qty .unit {
+  font-size: 22rpx;
+  font-weight: 400;
+  color: #6b7280;
+}
+
+.stock-right .tag {
+  margin-top: 8rpx;
+}

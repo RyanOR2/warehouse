@@ -1,0 +1,54 @@
+<!--pages/beer-edit/index.wxml-->
+<view class="page">
+  <view class="card">
+    <view class="form-item">
+      <view class="form-label"><text class="required">*</text> 啤酒名称</view>
+      <input class="form-input" placeholder="请输入啤酒名称" value="{{form.name}}" data-field="name" bindinput="onInput" />
+    </view>
+
+    <view class="form-item">
+      <view class="form-label"><text class="required">*</text> 分类</view>
+      <picker mode="selector" range="{{categories}}" range-key="name" value="{{catIndex}}" bindchange="onCategoryChange">
+        <view class="form-picker {{catIndex < 0 ? 'placeholder' : ''}}">
+          {{catIndex >= 0 ? categories[catIndex].name : '请选择分类'}}
+        </view>
+      </picker>
+    </view>
+
+    <view class="form-item">
+      <view class="form-label">规格</view>
+      <input class="form-input" placeholder="如 500ml×12瓶/箱" value="{{form.spec}}" data-field="spec" bindinput="onInput" />
+    </view>
+
+    <view class="form-item">
+      <view class="form-label">商城图标（emoji）</view>
+      <input class="form-input" placeholder="如 🍺，留空默认 🍺" value="{{form.icon}}" data-field="icon" bindinput="onInput" />
+    </view>
+
+    <view class="form-item">
+      <view class="form-label">商品实拍图（可选，优先于 emoji 显示）</view>
+      <view class="image-picker" bindtap="onChooseImage">
+        <image wx:if="{{form.image}}" class="image-preview" src="{{form.image}}" mode="aspectFill" />
+        <view wx:else class="image-placeholder">＋ 上传图片</view>
+      </view>
+      <view wx:if="{{form.image}}" class="image-remove" bindtap="onRemoveImage">移除图片</view>
+    </view>
+
+    <view class="form-item">
+      <view class="form-label"><text class="required">*</text> 售价（元）</view>
+      <input class="form-input" type="digit" placeholder="请输入售价" value="{{form.sellingPrice}}" data-field="sellingPrice" bindinput="onInput" />
+    </view>
+
+    <view class="form-item">
+      <view class="form-label"><text class="required">*</text> 成本价（元）</view>
+      <input class="form-input" type="digit" placeholder="请输入成本价" value="{{form.costPrice}}" data-field="costPrice" bindinput="onInput" />
+    </view>
+
+    <view class="form-item">
+      <view class="form-label"><text class="required">*</text> 保质期（天）</view>
+      <input class="form-input" type="number" placeholder="请输入保质期天数" value="{{form.shelfLifeDays}}" data-field="shelfLifeDays" bindinput="onInput" />
+    </view>
+
+    <button class="btn-primary save-btn" bindtap="onSave">保存</button>
+  </view>
+</view>

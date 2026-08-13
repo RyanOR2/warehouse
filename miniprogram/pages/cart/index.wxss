@@ -1,0 +1,168 @@
+/* pages/cart/index.wxss */
+.page {
+  padding: 24rpx;
+  padding-bottom: 160rpx;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 16rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+}
+
+.item-icon {
+  font-size: 64rpx;
+  line-height: 1;
+  margin-right: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-img {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 8rpx;
+}
+
+.item-info {
+  flex: 1;
+}
+
+.item-name {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.item-price {
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  color: #f5a623;
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  margin: 0 16rpx;
+}
+
+.step-btn {
+  width: 44rpx;
+  height: 44rpx;
+  line-height: 40rpx;
+  text-align: center;
+  background: #f3f4f6;
+  border-radius: 8rpx;
+  font-size: 30rpx;
+  color: #1f2937;
+}
+
+.step-num {
+  min-width: 36rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #1f2937;
+}
+
+.item-del {
+  font-size: 36rpx;
+  padding: 8rpx;
+}
+
+.checkout-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  padding: 20rpx 24rpx;
+  box-shadow: 0 -2rpx 12rpx rgba(0, 0, 0, 0.06);
+}
+
+.checkout-total {
+  display: flex;
+  align-items: baseline;
+}
+
+.total-label {
+  font-size: 26rpx;
+  color: #6b7280;
+  margin-right: 8rpx;
+}
+
+.total-price {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #f5a623;
+}
+
+.checkout-btn {
+  width: 240rpx;
+  margin: 0;
+}
+
+.modal-mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.modal-body {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  z-index: 101;
+  background: #ffffff;
+  border-radius: 20rpx;
+  padding: 32rpx;
+  box-sizing: border-box;
+}
+
+.modal-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #1f2937;
+  text-align: center;
+  margin-bottom: 24rpx;
+}
+
+.modal-total {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  margin: 8rpx 0 24rpx;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 24rpx;
+  margin-top: 8rpx;
+}
+
+.modal-btn {
+  width: 180rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding: 0;
+  font-size: 26rpx;
+  border-radius: 12rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.btn-hover {
+  opacity: 0.85;
+}

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "啤酒仓库管理",
+  "usingComponents": {
+    "cloud-tip-modal": "/components/cloudTipModal/index"
+  }
+}

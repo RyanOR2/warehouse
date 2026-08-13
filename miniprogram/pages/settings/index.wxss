@@ -1,0 +1,15 @@
+/* pages/settings/index.wxss */
+.page {
+  padding: 24rpx;
+}
+
+.form-hint {
+  margin-top: 12rpx;
+  font-size: 22rpx;
+  color: #9ca3af;
+  line-height: 1.5;
+}
+
+.save-btn {
+  margin-top: 16rpx;
+}

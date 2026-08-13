@@ -1,0 +1,113 @@
+/* pages/index/index.wxss */
+.home {
+  padding: 32rpx 24rpx;
+}
+
+.home-header {
+  margin: 24rpx 8rpx 40rpx;
+}
+
+.home-title {
+  font-size: 44rpx;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.home-subtitle {
+  margin-top: 8rpx;
+  font-size: 26rpx;
+  color: #6b7280;
+}
+
+.remind-card {
+  background: #ffffff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin: 0 8rpx 24rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+}
+
+.remind-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12rpx;
+}
+
+.remind-title {
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.remind-dot {
+  min-width: 36rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  padding: 0 8rpx;
+  box-sizing: border-box;
+  text-align: center;
+  background: #ef4444;
+  color: #ffffff;
+  border-radius: 18rpx;
+  font-size: 22rpx;
+  font-weight: 600;
+  margin-right: 12rpx;
+}
+
+.remind-more {
+  font-size: 24rpx;
+  color: #f5a623;
+}
+
+.remind-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12rpx 0;
+  border-top: 1rpx solid #f0f0f0;
+}
+
+.remind-name {
+  font-size: 26rpx;
+  color: #1f2937;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 16rpx;
+}
+
+.menu-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.menu-item {
+  width: 31.5%;
+  background: #ffffff;
+  border-radius: 16rpx;
+  padding: 40rpx 0;
+  margin-bottom: 24rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+}
+
+.menu-item.disabled {
+  opacity: 0.4;
+}
+
+.menu-icon {
+  font-size: 64rpx;
+  line-height: 1;
+}
+
+.menu-title {
+  margin-top: 20rpx;
+  font-size: 26rpx;
+  color: #1f2937;
+}

@@ -1,0 +1,29 @@
+<!--pages/my-orders/index.wxml-->
+<view class="page">
+  <view wx:if="{{!list.length}}" class="empty">暂无订单</view>
+
+  <view class="card order-card" wx:for="{{list}}" wx:key="_id">
+    <view class="order-top">
+      <view class="order-no">{{item.orderNo}}</view>
+      <view class="tag {{item.statusCls}}">{{item.statusLabel}}</view>
+    </view>
+    <view class="order-time">{{item.timeText}}</view>
+    <view class="order-items">
+      <view class="order-item" wx:for="{{item.items}}" wx:for-item="it" wx:key="beerId">
+        <text class="oi-name">{{it.name}}</text>
+        <text class="oi-qty">×{{it.quantity}}</text>
+      </view>
+    </view>
+    <view wx:if="{{item.remark}}" class="order-remark">备注：{{item.remark}}</view>
+    <view class="order-bottom">
+      <text class="order-count">共 {{item.totalQuantity}} 瓶</text>
+      <text class="order-amount">¥{{item.amountText}}</text>
+    </view>
+  </view>
+
+  <view class="load-more" wx:if="{{list.length}}">
+    <text wx:if="{{loading}}">加载中...</text>
+    <text wx:elif="{{hasMore}}" bindtap="onLoadMore">加载更多</text>
+    <text wx:else>没有更多了</text>
+  </view>
+</view>

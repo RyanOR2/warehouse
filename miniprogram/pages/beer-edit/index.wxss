@@ -1,0 +1,36 @@
+/* pages/beer-edit/index.wxss */
+.page {
+  padding: 24rpx;
+}
+
+.image-picker {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 12rpx;
+  border: 1rpx dashed #e5e7eb;
+  background: #f9fafb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.image-preview {
+  width: 100%;
+  height: 100%;
+}
+
+.image-placeholder {
+  font-size: 26rpx;
+  color: #9ca3af;
+}
+
+.image-remove {
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  color: #ef4444;
+}
+
+.save-btn {
+  margin-top: 16rpx;
+}

@@ -1,0 +1,51 @@
+<!--pages/login/login.wxml-->
+<view class="page-container">
+  <!-- 未登录状态 -->
+  <view class="login-card" wx:if="{{!hasLogin}}">
+    <image class="logo" src="../../images/avatar.png" mode="aspectFill"></image>
+    <view class="title">微信登录</view>
+    <view class="subtitle">登录后可获取您的 OpenID 等身份信息</view>
+    <button
+      class="login-btn"
+      bindtap="onLogin"
+      disabled="{{loading}}"
+      loading="{{loading}}"
+    >
+      {{loading ? '登录中...' : '微信一键登录'}}
+    </button>
+    <view class="tip">点击登录即表示同意小程序获取您的公开身份信息</view>
+  </view>
+
+  <!-- 已登录状态 -->
+  <view class="login-card" wx:else>
+    <view class="success-icon">
+      <view class="success-check">✓</view>
+    </view>
+    <view class="title">登录成功</view>
+    <view class="info-list">
+      <view class="info-item">
+        <text class="info-label">OpenID</text>
+        <text class="info-value" selectable>{{openid}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">AppID</text>
+        <text class="info-value" selectable>{{appid}}</text>
+      </view>
+      <view class="info-item" wx:if="{{unionid}}">
+        <text class="info-label">UnionID</text>
+        <text class="info-value" selectable>{{unionid}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">登录凭证 Code</text>
+        <text class="info-value" selectable>{{code}}</text>
+      </view>
+    </view>
+    <button class="logout-btn" bindtap="onLogout">退出登录</button>
+  </view>
+
+  <cloud-tip-modal
+    showTipProps="{{showTip}}"
+    title="{{title}}"
+    content="{{content}}"
+  ></cloud-tip-modal>
+</view>

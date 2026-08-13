@@ -1,0 +1,57 @@
+<!--pages/scrap/index.wxml-->
+<view class="page">
+  <view class="card">
+    <view class="form-item">
+      <view class="form-label"><text class="required">*</text> 啤酒品类</view>
+      <picker mode="selector" range="{{beers}}" range-key="name" value="{{beerIndex}}" bindchange="onBeerChange">
+        <view class="form-picker {{beerIndex < 0 ? 'placeholder' : ''}}">
+          {{beerIndex >= 0 ? beers[beerIndex].name : '请选择品类'}}
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="card" wx:if="{{beerIndex >= 0}}">
+    <view class="batch-header">
+      <view class="batch-title">选择报废批次</view>
+      <view class="batch-tip">默认最早到期</view>
+    </view>
+
+    <view wx:if="{{!batches.length}}" class="empty">该品类暂无在库批次</view>
+
+    <view
+      class="batch-item"
+      wx:for="{{batches}}"
+      wx:key="_id"
+      data-id="{{item._id}}"
+      bindtap="onSelectBatch"
+    >
+      <view class="batch-info">
+        <view class="batch-dates">
+          <text>生产 {{item.prodText || '未填'}}</text>
+          <text wx:if="{{item.expText}}">到期 {{item.expText}}</text>
+        </view>
+        <view class="batch-stock {{item.isUnfilled ? 'text-danger' : ''}}">
+          剩余 {{item.quantity}} 瓶{{item.isUnfilled ? '（未填生产日期）' : ''}}
+        </view>
+      </view>
+      <view class="radio {{selectedBatchId === item._id ? 'checked' : ''}}">
+        {{selectedBatchId === item._id ? '✓' : ''}}
+      </view>
+    </view>
+
+    <view class="form-item scrap-form">
+      <view class="form-label"><text class="required">*</text> 报废数量（瓶）</view>
+      <input class="form-input" type="number" placeholder="请输入报废数量" value="{{quantity}}" data-field="quantity" bindinput="onInput" />
+    </view>
+
+    <view class="form-item">
+      <view class="form-label">报废原因</view>
+      <picker mode="selector" range="{{reasonOptions}}" value="{{reasonIndex}}" bindchange="onReasonChange">
+        <view class="form-picker">{{reasonOptions[reasonIndex]}}</view>
+      </picker>
+    </view>
+
+    <button class="btn-danger save-btn" bindtap="onSubmit">提交报废</button>
+  </view>
+</view>

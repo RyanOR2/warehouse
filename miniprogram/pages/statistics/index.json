@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "销售统计",
+  "usingComponents": {
+    "trend-chart": "/components/trend-chart/index"
+  }
+}

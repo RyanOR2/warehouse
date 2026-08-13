@@ -1,0 +1,47 @@
+<!--pages/return/index.wxml-->
+<view class="page">
+  <view class="card">
+    <view class="form-item">
+      <view class="form-label"><text class="required">*</text> 啤酒品类</view>
+      <picker mode="selector" range="{{beers}}" range-key="name" value="{{beerIndex}}" bindchange="onBeerChange">
+        <view class="form-picker {{beerIndex < 0 ? 'placeholder' : ''}}">
+          {{beerIndex >= 0 ? beers[beerIndex].name : '请选择品类'}}
+        </view>
+      </picker>
+    </view>
+
+    <view class="form-item">
+      <view class="form-label"><text class="required">*</text> 退货数量（瓶）</view>
+      <input class="form-input" type="number" placeholder="请输入退货数量" value="{{quantity}}" data-field="quantity" bindinput="onInput" />
+    </view>
+
+    <view class="form-item">
+      <view class="form-label"><text class="required">*</text> 退货单价（元）</view>
+      <input class="form-input" type="digit" placeholder="默认取售价" value="{{unitPrice}}" data-field="unitPrice" bindinput="onInput" />
+    </view>
+
+    <view class="form-item">
+      <view class="form-label">生产日期（可选，未填不参与临期/过期提醒）</view>
+      <view class="date-row">
+        <picker class="date-picker" mode="date" value="{{productionDate}}" bindchange="onDateChange">
+          <view class="form-picker {{!productionDate ? 'placeholder' : ''}}">
+            {{productionDate || '请选择生产日期'}}
+          </view>
+        </picker>
+        <text wx:if="{{productionDate}}" class="clear-link" bindtap="onClearDate">清空</text>
+      </view>
+    </view>
+
+    <view class="form-item">
+      <view class="form-label">订单号</view>
+      <input class="form-input" placeholder="选填" value="{{orderNo}}" data-field="orderNo" bindinput="onInput" />
+    </view>
+
+    <view class="form-item">
+      <view class="form-label">退货原因 / 备注</view>
+      <input class="form-input" placeholder="选填" value="{{remark}}" data-field="remark" bindinput="onInput" />
+    </view>
+
+    <button class="btn-primary save-btn" bindtap="onSubmit">提交退货</button>
+  </view>
+</view>
